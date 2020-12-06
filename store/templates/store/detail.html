@@ -1,0 +1,36 @@
+{% extends 'store/base.html' %}
+{% block content %}
+    <div class="row">
+
+        <div class="col-lg-8">
+			<div class="box-element">
+				<img width="100%" src="{{product.imageURL}}" height="700">
+
+					<h6><strong>{{product.name}}</strong></h6>
+					<hr>
+
+					<button data-product_id="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+
+					<h4 style="display: inline-block; float: right"><strong><small>Kr. </small>{{product.price}}</strong></h4>
+
+
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="box-element">
+				<h4>Details</h4>
+				<hr>
+				<h5>Origin</h5>
+				<hr>
+				<h4>Review</h4>
+				<hr>
+				<h4>Offer</h4>
+				<hr>
+
+			</div>
+		</div>
+
+    </div>
+
+{% endblock content %}

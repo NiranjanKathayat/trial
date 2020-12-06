@@ -1,0 +1,84 @@
+{% extends 'store/base.html' %}
+{% block content %}
+    <div class="row">
+        <div  id="hide-this" class="col-lg-6">
+            <div class="box-element">
+                <form action="">
+                        <hr>
+                    <h4>User Info</h4>
+                    <hr>
+                    <input type="text" placeholder="Name" size="30" value=" shipping : {{shipping}}">
+                    <input type="text" placeholder="Email" size="30">
+                    <hr>
+                    <h4>Shipping Info</h4>
+                    <hr>
+                     <input type="text" placeholder="Address" size="30">
+                    <input type="text" placeholder="city" size="30">
+                    <hr>
+                    <input type="text" placeholder="postcode" size="30">
+                     <input type="text" placeholder="country" size="30">
+                    <hr>
+                    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                </form>
+            </div>
+        </div>
+        <div id="payment" class="col-lg-6  hidden">
+            <div class="box-element">
+               <h5>payment options</h5>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="box-element">
+                <a class="btn btn-outline-success" href="{% url 'cart' %}"> Back to Cart</a>
+                <hr>
+                <h2>Order summary</h2>
+                <hr>
+                <div class="cart-row">
+				<div style="flex:1"></div>
+				<div style="flex:1"><strong>Item</strong></div>
+				<div style="flex:1"><strong>Price</strong></div>
+				<div style="flex:1"><strong>Quantity</strong></div>
+				<div style="flex:1"><strong>Total</strong></div>
+			</div>
+
+
+
+                {% for item in items%}
+			<div class="cart-row">
+				<div style="flex:1"><img src="{{item.product.imageURL}}" alt="" height="30"></div>
+				<div style="flex:1">{{item.product.name}}</div>
+				<div style="flex:1">{{item.product.price}}</div>
+				<div style="flex:1">{{item.quantity}}</div>
+				<div style="flex:1">{{item.get_total}}</div>
+			</div>
+			{% endfor %}
+            </div>
+                <div class="box-element">
+                    <div class="cart-row">
+                        <div style="flex:1">Items:{{total}}</div>
+                        <div style="flex:1">Total cost: {{total_cost}}</div>
+                        <hr>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div id="final" class="col-lg-12 hidden">
+            <div class="box-element">
+                <a  class="btn btn-success btn-block" href="{% url 'payment' %}" >Make Payment</a>
+            </div>
+        </div>
+    </div>
+<script>
+    var btnContinue = document.getElementById("form-button")
+
+    btnContinue.addEventListener('click', function(e){
+        e.preventDefault()
+        document.getElementById("hide-this").classList.add("hidden")
+        document.getElementById("payment").classList.remove("hidden")
+        document.getElementById("final").classList.remove("hidden")
+
+    })
+</script>
+{% endblock content %}

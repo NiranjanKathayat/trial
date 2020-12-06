@@ -1,0 +1,41 @@
+{% extends 'store/base.html' %}
+{% block content %}
+
+      <div class="sidebar box-element" style="background-color:#d1dbcc;">
+
+        <form action="">
+          <h1>Category</h1>
+          {% for name, value in category.items %}
+                <input type="radio" id={{cat}} name="items" value="male">
+                <label for={{cat}}><h3>{{name}}</h3></label>
+                <br>
+                 {% for item in value %}
+                        <input type="radio" id={{item}} name="items" value = "{{item}}">
+                        <label for={{item}}><h5>{{item}}</h5></label>
+                        <br>
+                {% endfor %}
+          {% endfor %}
+
+
+
+        </form>
+      </div>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product_id="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+				<a class="btn btn-outline-success" href="{% url 'detail_view' product.id %}">View</a>
+				<h4 style="display: inline-block; float: right"><strong><small>Kr. </small>{{product.price}}</strong></h4>
+
+			</div>
+		</div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

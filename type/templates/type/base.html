@@ -1,0 +1,51 @@
+{% extends 'store/base.html' %}
+{% block content %}
+    <div class="row">
+
+        <div class="col-lg-8">
+			<div class="box-element">
+
+             {% for name in category%}
+                <h1><u>{{name.category}}</u></h1>
+                {% for type in category_type%}
+                    {% if name == type.category%}
+                        <h3>{{type.branch_name}}</h3>
+                        {% for product in products %}
+                            {% if type == product.category_type%}
+                                <h6>{{product.name}} ----> {{product.price}}</h6>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+            {% endfor %}
+
+			</div>
+		</div>
+        <div class="col-lg-4">
+            {% for name in category%}
+
+                {% for type in category_type%}
+                    {% if name == type.category%}
+
+                        {% for product in products %}
+                            {% if product.id == 5 %}
+                                <h6>{{product.name}} ----> {{product.price}}</h6>
+                                {‰ break ‰}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+   <div class="col-lg-6 offset-lg-3">
+       <div class="box-element">
+           <h3>User Registration Form</h3>
+           <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                    <hr>
+               <input style="display:inline; align-item:center; margin:10px;" type="submit" value="Register">
+           </form>
+           <hr>
+           <div>
+               <h6><small>Already have an account ?<a style="display:inline; align-item:center; margin:10px;" href="/login/">Sing In</a></small></h6>
+           </div>
+        </div>
+   </div>
+{% endblock content %}
+
