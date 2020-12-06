@@ -1,9 +1,7 @@
+#slædgjas sdjfs
 from django.db import models
 from django.contrib.auth.models import User
-#kkkkkkk
-# i am going to change some codes
-# this is just for testing
-# something
+
 
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
