@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 #kkkkkkk
-# good to see you
 #jfldkjlfkdslkfslkjsdkjflksdjfklsdjlkfjsdlkjfklsjlkfjl
+# i am going to change some codes
+
+# something
 
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
